@@ -13,6 +13,7 @@ import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat;
 import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberType;
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 import com.google.i18n.phonenumbers.ShortNumberInfo;
+import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber.CountryCodeSource;
 //import com.google.i18n.phonenumbers.geocoding.PhoneNumberOfflineGeocoder;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -31,54 +32,23 @@ import java.util.Iterator;
  * @author yuchencai
  */
 public class Demo {
-    
-    /** 
-     * read the second excel sheet 
-     * @throws IOException 
-     */
-    public static void readFile() throws IOException {
-        String excelFilePath = "list.xlsx";
-        FileInputStream inputStream = new FileInputStream(new File(excelFilePath));
-         
-        Workbook workbook = new XSSFWorkbook(inputStream);
-        Sheet firstSheet = workbook.getSheetAt(1);
-        Iterator<Row> iterator = firstSheet.iterator();
-        
-        int count =0;
-        Row nextRow = iterator.next();
-        while (iterator.hasNext()) {
-            nextRow = iterator.next();
-            
-            Iterator<Cell> cellIterator = nextRow.cellIterator();
-            // id
-            Cell cell = cellIterator.next();
-            double id = cell.getNumericCellValue();
-            // carrier name
-            cell = cellIterator.next();
-            String carrier = cell.getStringCellValue();
-            // code
-            cell = cellIterator.next();
-            double code = cell.getNumericCellValue();
-            // phone number
-            cell = cellIterator.next();
-            double phone = cell.getNumericCellValue();
-                            
-            System.out.println("carrier:"+carrier+",phone number:"+phone);
-            
-            //count++;
-            //if(count>=10) break;
-        }
-         
-        workbook.close();
-        inputStream.close();
-    }
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        /**
+        long ps = 32473683036L;
+        PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+        //PhoneNumber num = phoneUtil.format(ps, PhoneNumberFormat.NATIONAL);
+        PhoneNumber numberA = new PhoneNumber();
+        numberA.setRawInput("32 473 683 036").setCountryCodeSource(CountryCodeSource.FROM_NUMBER_WITHOUT_PLUS_SIGN);
+        //PhoneNumber number = new PhoneNumber(32).setNationalNumber();
+        PhoneNumberType numberType = phoneUtil.getNumberType(numberA);
+        System.out.println("type:"+numberType);
+       */
+        Phones phone = new Phones();
         try{
-            readFile();
+            phone.loadFile("list.xlsx");
         } catch(Exception e){
             e.printStackTrace();
         }
