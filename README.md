@@ -2,7 +2,6 @@
 Ratio of different types of phone number is in sheet PhoneNumberResult.xlsx
 
 64 --- New Zealand | Total:1272 | mobile:279 | fix:887 | unknown:106 | other:0
-
 65 --- Singapore | Total:1000 | mobile:994 | fix:0 | unknown:6 | other:0
 66 --- Thailand | Total:484 | mobile:263 | fix:107 | unknown:114 | other:0
 7 --- Russia | Total:1000 | mobile:999 | fix:0 | unknown:1 | other:0
