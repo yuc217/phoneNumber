@@ -45,5 +45,17 @@ public class CountryCount {
         return countryName+" | Total:"+totalCount+" | mobile:"+mobileCount+" | fix:"+fixCount+" | unknown:"
                 +unknownCount+" | other:"+other;
     } 
-
+    
+    public double mobileRatio(){
+        double ratio = (mobileCount+0.0)/(totalCount+0.0)*100;
+        return (int)(ratio*100)/100.0;
+    }
+    public double fixRatio(){
+        double ratio = (fixCount+0.0)/(totalCount+0.0)*100;
+        return (int)(ratio*100)/100.0;
+    }
+    public double unknownRatio(){
+        double ratio = (unknownCount+0.0)/(totalCount+0.0)*100;
+        return (int)(ratio*100)/100.0;
+    }
 }

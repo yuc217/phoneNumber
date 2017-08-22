@@ -10,6 +10,7 @@ import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberType;
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -19,6 +20,8 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+
 
 /**
  *
@@ -55,13 +58,11 @@ public class Phones {
         Sheet secondSheet = workbook.getSheetAt(2); // country - code
         Iterator<Row> iterator = firstSheet.iterator();
         loadCountryCode(secondSheet);
-        int count =0;
         Row nextRow = iterator.next();
         double id;String carrier; int code=0;long phone=0;long parsed_number;
         // iterate through the sheet
         while (iterator.hasNext()) {
             nextRow = iterator.next();
-            
             Iterator<Cell> cellIterator = nextRow.cellIterator();
             // id
             Cell cell = cellIterator.next();
@@ -78,26 +79,21 @@ public class Phones {
             // parse number as national number
             parsed_number = parseNumber(phone,String.valueOf(code).length());
             //System.out.println(parsed_number);
-            
             PhoneNumber number = new PhoneNumber().setCountryCode(code).setNationalNumber(parsed_number);
             PhoneNumberType numberType = phoneUtil.getNumberType(number);
             // categorize by country
-            categorizeNumber(numberType,code);
-                
-            count++;            
+            categorizeNumber(numberType,code);          
         }       
-        
-        
-        
+  
         // close 
         workbook.close();
         inputStream.close();
-        System.out.println(count+"last: code:"+code+"number:"+phone);
-        printMap();
+        //System.out.println(count+"last: code:"+code+"number:"+phone);
+        //printMap();
+        //toSheet();
     }
     
-    public void categorizeNumber(PhoneNumberType type, int code){
-        
+    public void categorizeNumber(PhoneNumberType type, int code){       
         CountryCount obj;
         if(map.containsKey(code)){
             obj = map.get(code);
@@ -113,11 +109,9 @@ public class Phones {
                     case FIXED_LINE: obj.addFix(); break;
                     case UNKNOWN: obj.addUnknown(); break;
                     default: obj.addOther();                
-                }
-                
+                }           
                 // put back to map
-                map.put(code, obj);
-       
+                map.put(code, obj);   
     }
     
     
@@ -154,7 +148,54 @@ public class Phones {
     }
     
     public void toSheet(){
+        XSSFWorkbook workbook = new XSSFWorkbook(); 
+        XSSFSheet sheet = workbook.createSheet("typeRatioResult");
+        //Set<String> keyset = data.keySet();
+        Row row = sheet.createRow(0);
+        Cell firstrow = row.createCell(0);
+        firstrow.setCellValue("Country Code");
+        firstrow = row.createCell(1);
+        firstrow.setCellValue("Country Name");
+        firstrow = row.createCell(2);
+        firstrow.setCellValue("%Mobile");
+        firstrow = row.createCell(3);
+        firstrow.setCellValue("%Fixed Line");
+        firstrow = row.createCell(4);
+        firstrow.setCellValue("%Unknown");
+               
+        Iterator it = map.entrySet().iterator();
+        int rownum = 1;
+        while (it.hasNext()) {           
+            row = sheet.createRow(rownum++);
+           
+            Map.Entry pair = (Map.Entry)it.next();
+            //System.out.println(pair.getKey() + " --- " + pair.getValue().toString());
+            Cell cell = row.createCell(0);
+            cell.setCellValue((Integer)pair.getKey());
+            cell = row.createCell(1);
+            cell.setCellValue((String)((CountryCount)pair.getValue()).countryName);
+            cell = row.createCell(2);
+            cell.setCellValue((double)((CountryCount)pair.getValue()).mobileRatio());
+            cell = row.createCell(3);
+            cell.setCellValue((double)((CountryCount)pair.getValue()).fixRatio());
+            cell = row.createCell(4);
+            cell.setCellValue((double)((CountryCount)pair.getValue()).unknownRatio());
+            it.remove(); // avoids a ConcurrentModificationException
+        }
         
+        try
+        {
+            //Write the workbook in file system
+            FileOutputStream out = new FileOutputStream(new File("PhoneNumberResult.xlsx"));
+            workbook.write(out);
+            out.close();
+            System.out.println("written successfully.");
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+  
     }
     
     
