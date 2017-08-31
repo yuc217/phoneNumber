@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package demo;
+package PhoneNumber;
+
+import java.util.Map;
 
 /**
- *
+ * country with different type counts
  * @author yuchencai
  */
 public class CountryCount {
@@ -14,11 +16,12 @@ public class CountryCount {
     String countryName;
     int countryCode;
     int totalCount,mobileCount,fixCount,unknownCount,other;
+    Map<Integer, String> prefix = CountryPrefix.nationalcode();
     
-    
-    CountryCount(int countryCode, String countryName){
+    CountryCount(int countryCode){
+        
         this.countryCode = countryCode;
-        this.countryName = countryName;
+        this.countryName = prefix.get(countryCode);
         totalCount=0;
         mobileCount=0;
         fixCount=0;
@@ -42,7 +45,7 @@ public class CountryCount {
         other++;
     }
     public String toString(){
-        return countryName+" | Total:"+totalCount+" | mobile:"+mobileCount+" | fix:"+fixCount+" | unknown:"
+        return ":"+countryName+" | Total:"+totalCount+" | mobile:"+mobileCount+" | fix:"+fixCount+" | unknown:"
                 +unknownCount+" | other:"+other;
     } 
     
@@ -50,12 +53,15 @@ public class CountryCount {
         double ratio = (mobileCount+0.0)/(totalCount+0.0)*100;
         return (int)(ratio*100)/100.0;
     }
+    
     public double fixRatio(){
         double ratio = (fixCount+0.0)/(totalCount+0.0)*100;
         return (int)(ratio*100)/100.0;
     }
+    
     public double unknownRatio(){
         double ratio = (unknownCount+0.0)/(totalCount+0.0)*100;
         return (int)(ratio*100)/100.0;
     }
+    
 }
