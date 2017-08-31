@@ -1,0 +1,116 @@
+Russia Carriers-7
+Brunei Carriers-673
+Guinea Bissau Carriers-245
+Indonesia Carriers-62
+Somalia Carriers-252
+West Bank Carriers-970
+Bangladesh Carriers-880
+North Korea Carriers-850
+Bhutan Carriers-975
+Central African Republic Carriers-236
+Gambia Carriers-220
+Liechtenstein Carriers-423
+Madagascar Carriers-261
+Tajikistan Carriers-992
+United Arab Emirates Carriers-971
+Malawi Carriers-265
+Namibia Carriers-264
+Palau Carriers-680
+Solomon Islands Carriers-677
+Sudan Carriers-249
+Vanuatu Carriers-678
+Vietnam Carriers-84
+Kyrgyzstan Carriers-996
+Rwanda Carriers-250
+Saint Pierre and Miquelon Carriers-508
+Benin Carriers-229
+Bolivia Carriers-591
+El Salvador Carriers-503
+Macau Carriers-853
+Nepal Carriers-977
+Suriname Carriers-597
+Tunisia Carriers-216
+Uzbekistan Carriers-998
+Honduras Carriers-504
+Iran Carriers-98
+Iraq Carriers-964
+Ivory Coast Carriers-225
+Lesotho Carriers-266
+Papua New Guinea Carriers-675
+Angola Carriers-244
+Haiti Carriers-509
+Republic of the Congo Carriers-242
+Senegal Carriers-221
+Sierra Leone Carriers-232
+Zambia Carriers-260
+French Polynesia Carriers-689
+Saint Helena Carriers-290
+Samoa Carriers-685
+Wallis and Futuna Carriers-681
+Liberia Carriers-231
+Libya Carriers-218
+Mauritania Carriers-222
+Philippines Carriers-63
+Swaziland Carriers-268
+Afghanistan Carriers-93
+Costa Rica Carriers-506
+Mongolia Carriers-976
+Syria Carriers-963
+Cameroon Carriers-237
+Niue Carriers-683
+China Carriers-86
+Cuba Carriers-53
+Ethiopia Carriers-251
+Fiji Carriers-679
+Gabon Carriers-241
+Lebanon Carriers-961
+Micronesia Carriers-691
+Niger Carriers-227
+Ukraine Carriers-380
+Burma (Myanmar) Carriers-95
+Tanzania Carriers-255
+Cook Islands Carriers-682
+Eritrea Carriers-291
+San Marino Carriers-378
+Seychelles Carriers-248
+Uganda Carriers-256
+Tonga Carriers-676
+Zimbabwe Carriers-263
+Botswana Carriers-267
+Equatorial Guinea Carriers-240
+Guyana Carriers-592
+Maldives Carriers-960
+Mayotte Carriers-262
+Togo Carriers-228
+Venezuela Carriers-58
+Andorra Carriers-376
+Belize Carriers-501
+Chad Carriers-235
+Marshall Islands Carriers-692
+Montenegro Carriers-382
+Nauru Carriers-674
+Algeria Carriers-213
+Aruba Carriers-297
+Cape Verde Carriers-238
+Comoros Carriers-269
+Djibouti Carriers-253
+Guatemala Carriers-502
+Laos Carriers-856
+Mauritius Carriers-230
+Monaco Carriers-377
+Mozambique Carriers-258
+Saint Barthelemy Carriers-590
+Sao Tome and Principe Carriers-239
+Uruguay Carriers-598
+Burkina Faso Carriers-226
+Democratic Republic of the Congo Carriers-243
+Guinea Carriers-224
+Kiribati Carriers-686
+Mali Carriers-223
+Timor Leste Carriers-670
+Turkmenistan Carriers-993
+Burundi Carriers-257
+Cambodia Carriers-855
+Nicaragua Carriers-505
+Sri Lanka Carriers-94
+Yemen Carriers-967
